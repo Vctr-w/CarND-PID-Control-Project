@@ -1,0 +1,7 @@
+I used the PID algorithm described in the lecture notes. As seen in the lecture notes, the P component by itself presented a reasonable effort at autonomously steering the car however had issues stabilising to changing equilbrium. This was particularly evident in curves in the road where the ideal steering angle changes. Perhaps at lower speeds, the P itself is enough where the margin of allowable error is high.
+
+Implementation of the D component definitely helped the algorithm to stabilise to the equilibrium. This was the result described in the lecture notes. 
+
+Likewise, the I component also performed similarly to what was described in the lecture notes. The vehicle overshot the equilbrium a lot more drastically initially (strayed very far from the middle of the road), but after the initial overshoot, performed slightly better than PD. 
+
+Manual tuning was done to come to the final hyperparameter coefficients. It was noted that the initial overshoot with the I component was too much and so the I hyperparameter was set to 0. 
