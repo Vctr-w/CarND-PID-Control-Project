@@ -30,6 +30,6 @@ double PID::TotalError() {
   return cte_sum_;
 }
 
-double PID::GetResult(double cte) {
-  return -Kp_ * cte  - Ki_ * cte_sum_ - Kd_ * delta_cte_;
+double PID::GetResult() {
+  return -Kp_ * current_cte_  - Ki_ * cte_sum_ - Kd_ * delta_cte_;
 }

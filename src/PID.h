@@ -46,7 +46,7 @@ public:
   */
   double TotalError();
 
-  double GetResult(double cte);
+  double GetResult();
 };
 
 #endif /* PID_H */
