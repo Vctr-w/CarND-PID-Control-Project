@@ -52,7 +52,7 @@ int main()
           double cte = std::stod(j[1]["cte"].get<std::string>());
           //double speed = std::stod(j[1]["speed"].get<std::string>());
           //double angle = std::stod(j[1]["steering_angle"].get<std::string>());
-          double steer_value = -pid.Kp_ * cte  - pid.Ki_ * pid.TotalError() - pid.Kd_ * (cte - pid.old_cte_);
+          double steer_value = pid.GetResult(cte);
 
           pid.UpdateError(cte);
 

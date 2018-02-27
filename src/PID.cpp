@@ -28,3 +28,6 @@ double PID::TotalError() {
   return cte_sum_;
 }
 
+double PID::GetResult(double cte) {
+  return -Kp_ * cte  - Ki_ * TotalError() - Kd_ * (cte - old_cte_);
+}
