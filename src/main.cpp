@@ -47,14 +47,17 @@ int main()
       if (s != "") {
         auto j = json::parse(s);
         std::string event = j[0].get<std::string>();
-        if (event == "telemetry") {
+        if (event == "telemetry") {          
           // j[1] is the data JSON object
           double cte = std::stod(j[1]["cte"].get<std::string>());
           //double speed = std::stod(j[1]["speed"].get<std::string>());
           //double angle = std::stod(j[1]["steering_angle"].get<std::string>());
-          double steer_value = pid.GetResult(cte);
 
           pid.UpdateError(cte);
+
+          double steer_value = pid.GetResult(cte);
+
+          
 
           /*
           * TODO: Calcuate steering value here, remember the steering value is

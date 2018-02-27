@@ -17,8 +17,9 @@ public:
   double Ki_;
   double Kd_;
 
-  double old_cte_;
+  double current_cte_;
   double cte_sum_;
+  double delta_cte_;
 
   /*
   * Constructor

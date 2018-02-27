@@ -15,12 +15,14 @@ void PID::Init(double Kp, double Ki, double Kd) {
   Ki_ = Ki;
   Kd_ = Kd;
 
-  old_cte_ = 0;
+  current_cte_ = 0;
   cte_sum_ = 0;
+  delta_cte_ = 0;
 }
 
 void PID::UpdateError(double cte) {
-  old_cte_ = cte;
+  delta_cte_ = cte - current_cte_;
+  current_cte_ = cte;
   cte_sum_ += cte;
 }
 
@@ -29,5 +31,5 @@ double PID::TotalError() {
 }
 
 double PID::GetResult(double cte) {
-  return -Kp_ * cte  - Ki_ * TotalError() - Kd_ * (cte - old_cte_);
+  return -Kp_ * cte  - Ki_ * cte_sum_ - Kd_ * delta_cte_;
 }
